@@ -1,32 +1,44 @@
 package vn.hoidanit.laptopshop.controller;
 
-// import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoidanit.laptopshop.service.UserService;
 
-// @Controller
-// public class UserController {
-
-//     @RequestMapping("/")
-//     public String getHomePage() {
-//         return "hello after login";
-//     }
-// }
-
-@RestController
+@Controller
 public class UserController {
-
+    // // Injecting UserService
+    // // DI : dependency Injection
     private UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String getHomePage() {
-        return this.userService.handleHello();
+        String message = this.userService.handleHello();
+        return "aiden.html";
     }
 }
+
+// @RestController
+// public class UserController {
+
+// // Injecting UserService
+// // DI : dependency Injection
+// private UserService userService;
+
+// public UserController(UserService userService) {
+// this.userService = userService;
+// }
+
+// @GetMapping("/")
+// public String getHomePage() {
+// return this.userService.handleHello();
+// }
+// }
