@@ -31,8 +31,8 @@ public class UserController {
         return "hello";
     }
 
-    @RequestMapping("/admin/user")
-    public String getUserPage(Model model) {
+    @RequestMapping("/admin/user/create")
+    public String getUserCreatePage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
@@ -43,4 +43,10 @@ public class UserController {
         this.userService.handleSaveUser(user);
         return "hello";
     }
+
+    @RequestMapping("/admin/user")
+    public String getUserPage(Model model) {
+        return "admin/user/tableUser";
+    }
+
 }
