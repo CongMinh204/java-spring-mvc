@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,9 +26,13 @@ public class Product {
     private String factory;
     private String target;
 
-    public long getId() {
-        return id;
-    }
+    // One to many
+    // @OneToMany(mappedBy = "product")
+    // private java.util.List<OrderDetail> orderDetails;
+
+    // public long getId() {
+    // return id;
+    // }
 
     public void setId(long id) {
         this.id = id;
